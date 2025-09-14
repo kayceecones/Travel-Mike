@@ -17,4 +17,5 @@ def get_fortune():
     return jsonify({"fortune": fortune})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5001, debug=True)
+
