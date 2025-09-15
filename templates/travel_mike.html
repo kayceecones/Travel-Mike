@@ -63,20 +63,26 @@
   <div id="answer"></div>
 
   <!-- JavaScript -->
-  <script>
-  const button = document.getElementById("shakeBtn");
-  const answerDiv = document.getElementById("answer");
+ <script>
+  // Determine backend URL based on environment
+  const backendUrl = window.location.hostname === "localhost"
+    ? "http://127.0.0.1:5001" // local backend for development
+    : "https://your-backend.onrender.com"; // deployed backend URL
 
-  button.addEventListener("click", async function() {
+  document.getElementById("getFortuneButton").addEventListener("click", async () => {
     try {
-      const response = await fetch("http://127.0.0.1:5001/fortune");
+      const response = await fetch(`${backendUrl}/fortune`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
-      answerDiv.textContent = data.fortune;
-    } catch (error) {
-      answerDiv.textContent = "Oops! Could not reach Magic Mike.";
-      console.error(error);
+      console.log(data); // do whatever you want with the data
+      document.getElementById("fortuneDisplay").innerText = data.fortune;
+    } catch (err) {
+      console.error("Failed to fetch fortune:", err);
+      document.getElementById("fortuneDisplay").innerText = "Sorry, something went wrong.";
     }
   });
-</script>
+</script
 </body>
 </html>
