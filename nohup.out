@@ -7,3 +7,11 @@ On macOS, try disabling the 'AirPlay Receiver' service from System Preferences -
  * Debug mode: on
 Address already in use
 Port 5001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Traceback (most recent call last):
+  File "/Users/KC/Desktop/Travel Mike/fortune_server.py", line 5, in <module>
+    from fortune_list import FORTUNES_LIST
+ModuleNotFoundError: No module named 'fortune_list'
+Traceback (most recent call last):
+  File "/Users/KC/Desktop/Travel Mike/fortune_server.py", line 5, in <module>
+    from fortune_list import FORTUNES_LIST
+ModuleNotFoundError: No module named 'fortune_list'
